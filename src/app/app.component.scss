@@ -1,0 +1,15 @@
+.app {
+    //como se colocan elementos dentro del padre
+    display: flex;
+    //el formato que quenttra los elementos y su posicion
+    justify-content: flex-start;
+    //La direcion que toma Row es en forma horizonatl posicionando uo tras otro 
+    flex-direction: row;
+    .main {
+        width: 92%;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        color: aqua;
+    }
+}

@@ -1,0 +1,120 @@
+<!-- <main class="body">
+    <div class='list_item'>
+        <input checked='checked' id='movie-The flash' name='movie' type='radio'>
+        <label for='movie-The flash'>
+            <div class='icon ion-ios-videocam'></div>
+            <span>The flash</span>
+            <div class='list_item__placeholder'></div>
+            <div class='list_item__image'></div>
+            <div class='list_item__bg'></div>
+            <section class='list_item__feature'>
+                <img class='gif' src='https://www.jamiecoulter.co.uk/dev/codepen/flash_guf.gif'>
+                <div class='gif_overlay'></div>
+                <div class='information'>
+                    <h1>The flash</h1>
+                    <h2>27 episodes</h2>
+                    <div class='stars'>
+                        <div class='ion-android-star'></div>
+                        <div class='ion-android-star'></div>
+                        <div class='ion-android-star'></div>
+                        <div class='ion-android-star'></div>
+                        <div class='ion-android-star'></div>
+                    </div>
+                </div>
+                <div class='description'>
+                    <p>Barry Allen is a Central City police forensic scientist with a reasonably happy life,
+                        despite the childhood trauma of a mysterious red and yellow being killing his mother
+                        and framing his father. All that changes when a massive particle accelerator
+                        accident leads to Barry being struck by lightning in his lab. Coming out of coma
+                        nine months later, Barry and his new friends at STAR labs find that he now has the
+                        ability to move at superhuman speed. Furthermore, Barry learns that he is but one of
+                        many affected by that event, most of whom are using their powers for evil</p>
+                </div>
+                <div class='watch'>
+                    <div class='ion-android-star'></div>
+                    Watch now
+                </div>
+            </section>
+        </label>
+    </div>
+     partial 
+</main>
+
+<div class="embed-responsive embed-responsive-16by9 " *ngIf="urlSafe!=null">
+    <iframe class="embed-responsive-item " allowfullscreen [src]="urlSafe "></iframe>
+</div> -->
+<div class="loading" *ngIf="loading">
+    <img src="../../../assets/loading.gif" width="50%" />
+</div>
+<div class="movie-info-container">
+    <div class="movie-banner-cover">
+        <img src="{{ serie.cover }}" alt="serie cover" />
+    </div>
+    <div class="movie-detail-container">
+        <div class="movie-detail">
+            <h2 *ngIf="serie.name">{{ serie.name }}</h2>
+            <div class="short-info">
+                <div class="genres">
+                    <span>Puntuacion: <strong>{{ serie.rate }}</strong></span
+          >
+          <br />
+          <span>Generos:</span>
+                    <!-- <a *ngFor="let genre of movie.genres" [routerLink]="['/movies/']" [queryParams]="{filter:genre}">
+                        {{genre}}
+                    </a> -->
+                    <a *ngFor="let genre of serie.genres">
+            {{ genre.name }}
+          </a>
+                    <!-- <ng-container *ngIf="authService.loggedIn();">
+                        <button (click)="delete()" mat-fab color="primary" aria-label="Example icon button with a delete icon">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                        <button (click)="edit()" mat-fab color="primary" aria-label="Example icon button with a delete icon">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                    </ng-container> -->
+                </div>
+            </div>
+            <p class="desc">
+                {{ serie.overview }}
+            </p>
+
+            <mat-tab-group>
+                <mat-tab *ngFor="let season of serie.seasons" label="{{ season.name }}">
+                    <mat-card class="example-card" *ngFor="let episode of season.episodes let i=index">
+                        <mat-card-header>
+                            <div mat-card-avatar class="example-header-image"></div>
+                            <mat-card-title>{{episode.name}}</mat-card-title>
+                            <mat-card-subtitle>Episodio {{episode.episode_number}}</mat-card-subtitle>
+                        </mat-card-header>
+                        <img mat-card-image src="https://image.tmdb.org/t/p/w227_and_h127_bestv2/{{episode.poster}}" alt="Photo of a Shiba Inu">
+                        <mat-card-content>
+                            <p>
+                                {{episode.overview}}
+                            </p>
+
+                        </mat-card-content>
+                        <mat-card-actions>
+                            <button mat-button (click)="openDialog(episode.url)">Open dialog</button>
+                            <button mat-button>SHARE</button>
+                        </mat-card-actions>
+                    </mat-card>
+
+                    <!-- <mat-selection-list #shoes [multiple]="false">
+                        <mat-list-option *ngFor="let episode of season.episodes" [value]="episode">
+
+                        </mat-list-option>
+                    </mat-selection-list>
+
+                    <p>Option selected: {{ shoes.selectedOptions.selected[0]?.value }}</p> -->
+                </mat-tab>
+            </mat-tab-group>
+            <!-- <mat-tab-group>
+                <mat-tab label="First"> Content 1 </mat-tab>
+                <mat-tab label="Second"> Content 2 </mat-tab>
+                <mat-tab label="Third"> Content 3 </mat-tab>
+            </mat-tab-group> -->
+
+        </div>
+    </div>
+</div>

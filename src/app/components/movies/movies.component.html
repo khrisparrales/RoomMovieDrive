@@ -1,0 +1,60 @@
+<div class="search-bar">
+    <img src="assets/icons/search.svg" alt="search icon">
+    <input name="filtermovie" type="search" placeholder="Buscar" aria-label="Search" [(ngModel)]="filtermovie">
+</div>
+<div class="main-container">
+
+    <div class="genres-list">
+        <span class="title">Generos</span>
+        <hr>
+        <ul class="genre-list-items">
+            <li *ngFor="let genre of genres | enumToArray">
+                <a [ngClass]="{'active': genre == selectedGenre}" [routerLink]="['/movies/']" [queryParams]="{filter:genre}" (click)="changeFilter($event)">
+                {{genre}}
+            </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- <app-loading-spinner [loading]="!visibleMovies"></app-loading-spinner> -->
+    <!-- <div *ngIf="visibleMovies" class="movies-container" [@simpleFadeAnimation]="'in'"> -->
+    <div class="movies-container">
+        <div class="movies-list-header">
+            <span class="count" *ngIf="movies">
+                {{visibleMovies.length}}
+                 Peliculas
+            </span>
+            <ng-container *ngIf="authService.loggedIn();">
+                <button (click)="agregarlista()" mat-raised-button color="primary">
+                            Agregar a la lista
+                        </button>
+
+            </ng-container>
+
+            <div class="sort">
+                ORDENADO POR:
+                <select [(ngModel)]="sortBy">
+                    <option value="rate">Puntuacion</option>
+                    <option value="id">Recientes</option>
+                </select>
+            </div>
+        </div>
+        <hr>
+        <div class="movies-list">
+            <div class="loading" *ngIf="loading">
+                <img src="../../../assets/loading.gif" width="50%" />
+            </div>
+            <!-- <div *ngFor="let movie of visibleMovies | filter: searchText | sort: sortBy" class="movie"> -->
+            <div *ngFor="let movie of visibleMovies | filter:filtermovie | sort: sortBy" class="movie">
+                <a [routerLink]="['/moviesdetail/' + movie._id + '/' + movie.key]">
+                    <figure>
+                        <img src="{{movie.img}}" alt="movie poster">
+                    </figure>
+                    <span *ngIf="movie.movieName" class="title"> {{movie.movieName}}</span>
+                    <span *ngIf="movie.movieName==null" class="title"> {{movie.name}}</span>
+                    <span class="rate">{{movie.rate}}</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+    <section class="card-lg__container">
+        <p class="card__text-sm"></p>
+        <h1 class="card__text-lg">Batman- Collection</h1>
+        <p class="card__text-md">La serie de películas de la tetralogía de Tim Burton y Joel Schumacher del personaje de DC Comics Batman.</p>
+        <a href="#" class="card__btn">Agregar Favorito</a>
+    </section>
+
+
+    <section class="card-sm__container">
+        <!--- START: CARD --->
+        <section class="card-sm" style="background-image:url('https://image.tmdb.org/t/p/original/k0f0FNZx0eBUCYiVpun9WUh0BFk.jpg')">
+            <p class="card__text-sm"></p>
+            <h1 class="card__text-lg">Batman</h1>
+        </section>
+        <!--- END: CARD --->
+
+        <!--- START: CARD --->
+        <section class="card-sm" style="background-image: url('https://image.tmdb.org/t/p/original/qbON1ExcSvU8HMKKEgLvMf3Gmmv.jpg'); background-position: center right;">
+            <p class="card__text-sm"></p>
+            <h1 class="card__text-lg">Batman Vuelve</h1>
+        </section>
+        <!--- END: CARD --->
+
+        <!--- START: CARD --->
+        <section class="card-sm" style="background-image: url('https://image.tmdb.org/t/p/original/wg6BN76E9iIEtiawMJnCecY0zgY.jpg')">
+            <p class="card__text-sm"></p>
+            <h1 class="card__text-lg">Batman Forever </h1>
+        </section>
+        <!--- END: CARD --->
+
+        <!--- START: CARD --->
+        <section class="card-sm" style="background-image: url('https://image.tmdb.org/t/p/original/gJAvyXHdIjeKHS07Dlim7LETBEK.jpg')">
+            <p class="card__text-sm"></p>
+            <h1 class="card__text-lg">Batman y &nbsp; Robin</h1>
+        </section>
+        <!--- END: CARD --->
+    </section>

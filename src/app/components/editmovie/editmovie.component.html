@@ -1,0 +1,72 @@
+<div *ngIf="movie">
+    <mat-form-field appearance="outline">
+        <mat-label>_ID</mat-label>
+        <input [(ngModel)]="movie._id" required name="name" matInput name="url">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>id</mat-label>
+        <input [(ngModel)]="movie.id" required name="name" matInput name="url">
+    </mat-form-field>
+    <mat-form-field class="url" appearance="outline">
+        <mat-label>movieName</mat-label>
+        <input [(ngModel)]="movie.movieName" required name="name" matInput name="url">
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>description</mat-label>
+        <textarea [(ngModel)]="movie.description" matInput></textarea>
+        <!-- <input type="text" [(ngModel)]="movie.description" required name="name" matInput name="url"> -->
+    </mat-form-field>
+    <mat-form-field class="url" appearance="outline">
+        <mat-label>key</mat-label>
+        <input [(ngModel)]="movie.key" required name="name" matInput name="url">
+
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>rate</mat-label>
+        <input [(ngModel)]="movie.rate" required name="name" matInput>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>idimdb</mat-label>
+        <input [(ngModel)]="movie.idimdb" required name="name" matInput name="url" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>idtmdb</mat-label>
+        <input [(ngModel)]="movie.idtmdb" required name="name" matInput name="url" />
+    </mat-form-field>
+    <a *ngFor="let genre of movie.genre">
+        <mat-form-field appearance="outline">
+            <mat-label>idtmdb</mat-label>
+            <input value=" {{genre}}" required name="name" matInput name="url" />
+        </mat-form-field>
+
+    </a>
+    <mat-form-field class="url" appearance="outline">
+        <mat-label>img</mat-label>
+        <input [(ngModel)]="movie.img" required name="name" matInput name="url" />
+    </mat-form-field>
+    <mat-form-field class="url" appearance="outline">
+        <mat-label>cover</mat-label>
+        <input [(ngModel)]="movie.cover" required name="name" matInput name="url" />
+    </mat-form-field>
+    <div>
+        <img src="{{movie.img}}" height="100px" alt="">
+
+        <img src="{{movie.cover}}" width="100px">
+    </div>
+    <mat-form-field class="url" appearance="outline">
+        <mat-label>url</mat-label>
+        <input [(ngModel)]="movie.url" required name="name" matInput name="url" />
+    </mat-form-field>
+    <div class="frame ">
+        <iframe class="embed-responsive-item " allowfullscreen [src]="urlSafe "></iframe>
+    </div>
+    <div class="btn">
+        <button (click)="savechange()" mat-fab color="primary" aria-label="Example icon button with a delete icon">
+            <mat-icon>save</mat-icon>
+        </button>
+        <button class="btn2" (click)="cancel()" mat-fab color="primary" aria-label="Example icon button with a delete icon">
+            <mat-icon>cancel</mat-icon>
+        </button>
+    </div>
+
+</div>

@@ -1,0 +1,72 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+
+        <span>Añadir película</span>
+
+        <!-- <img src="/assets/loading.svg"  class="sending"> -->
+
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-card class="big-card">
+    <mat-card-content>
+        <div [ngClass]="{'row':!isMobile, 'col':isMobile}">
+            <div class="image-box" [ngClass]="{'col-30':!isMobile, 'col-100':isMobile}">
+                <img class="add-movie-cover" [src]="movie.img" alt="{{movie.movieName | urldecode}}">
+                <input type="file" name="movie.cover" id="cover" value="" (change)="onCoverChange($event)">
+            </div>
+        </div>
+        <div class="movie-info" [ngClass]="{'col-70':!isMobile, 'col-100':isMobile}">
+            <mat-form-field appearance="outline">
+                <mat-label>Nombre</mat-label>
+                <input matInput [(ngModel)]="movie.movieName" required name="name" (keyup)="searchMovieStart()">
+                <img src="/assets/loading.svg" *ngIf="searching" class="searching">
+            </mat-form-field>
+            <div *ngIf="searchResults.length>0" class="search-results">
+                <div class="search-results-header">
+                    <span>Resultados de la búsqueda</span>
+                    <button mat-icon-button (click)="closeSearchResults()">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </div>
+                <mat-action-list>
+                    <button *ngFor="let result of searchResults" mat-list-item (click)="selectResult(result)">
+                        <img matListAvatar src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/{{result.poster_path|urldecode}}"
+                            alt="{{result.title | urldecode}}">
+                        <h3 matLine class="search-result-item"> {{result.title | urldecode}} </h3>
+                    </button>
+                </mat-action-list>
+            </div>
+
+
+        </div>
+        <hr class="divider">
+        <p>Cover</p>
+        <div class="movie-info" [ngClass]="{'col-70':!isMobile, 'col-100':isMobile}">
+            <mat-form-field appearance="outline">
+                <mat-label>Año</mat-label>
+                <input [(ngModel)]="year" required name="name" matInput name="url">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="outline">
+                <mat-label>URL google drive</mat-label>
+                <input [(ngModel)]="movie.url" required name="name" matInput name="url">
+            </mat-form-field>
+        </div>
+
+        <div class="image-box">
+            <img class="add-movie-ticket" [src]="movie.cover">
+
+            <iframe [src]="urlSafe"></iframe>
+            <button mat-raised-button color="primary" (click)="addurl()">
+               
+                <img *ngIf="uploadingTicket" src="/assets/loading.svg">
+                Añadir entrada
+            </button>
+        </div>
+        <section>
+            <button (click)="saveload()" mat-raised-button color="accent">Accent</button>
+
+            <button (click)="cncelload()" mat-raised-button color="warn">Cancel</button>
+        </section>
+    </mat-card-content>
+</mat-card>

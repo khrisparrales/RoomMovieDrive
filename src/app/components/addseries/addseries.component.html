@@ -1,0 +1,38 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <span>Añadir Serie</span>
+
+        <!-- <img src="/assets/loading.svg"  class="sending"> -->
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-card class="big-card">
+    <mat-card-content>
+        <mat-form-field appearance="outline">
+            <mat-label>Nombre</mat-label>
+            <input matInput [(ngModel)]="name" required name="name" (keyup)="searchSeriesStart()" />
+            <img src="/assets/loading.svg" *ngIf="searching" class="searching" />
+        </mat-form-field>
+        <div *ngIf="seriesresult.length>0" class="search-results">
+            <div class="search-results-header">
+                <span>Resultados de la búsqueda</span>
+                <button mat-icon-button (click)="closeSearchResults()">
+                        <mat-icon>close</mat-icon>
+                    </button>
+            </div>
+            <mat-action-list>
+                <button *ngFor="let result of seriesresult" (click)="selectResult(result)" mat-list-item>
+                        <img matListAvatar src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/{{result.poster_path|urldecode}}"
+                            alt="{{result.name | urldecode}}">
+                        <h3 matLine class="search-result-item"> {{result.name | urldecode}} </h3>
+                    </button>
+            </mat-action-list>
+        </div>
+        <img class="add-movie-cover" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/{{serieselect.poster_path}}">
+
+        <section>
+            <button (click)="saveload()" mat-raised-button color="accent">Accent</button>
+
+            <!-- <button (click)="cncelload()" mat-raised-button color="warn">Cancel</button> -->
+        </section>
+    </mat-card-content>
+</mat-card>

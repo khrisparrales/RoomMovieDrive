@@ -1,0 +1,40 @@
+<div class="sidebar">
+    <a href="">RM</a>
+    <nav>
+        <a routerLink="/movies" routerLinkActive="active">
+            <img src="assets/icons/eye.svg" alt="sidebar nav link icon">
+        </a>
+
+        <a routerLink="/series" routerLinkActive="active">
+            <img src="assets/icons/monitor.svg" alt="sidebar nav link icon"> <br>
+        </a>
+        <a routerLink="/addselect" routerLinkActive="active">
+            <img src="assets/icons/folder.svg" alt="sidebar nav link icon"> <br>
+        </a>
+        <a [routerLink]="['/addseries', 'ford', 'focus']" routerLinkActive="active">
+            <img src="assets/icons/heart.svg" alt="sidebar nav link icon">
+        </a>
+
+        <ng-container *ngIf="!authService.loggedIn(); else loggedIn">
+
+            <!-- 
+                   <a [routerLink]="['/addseries', 'ford', 'focus']" routerLinkActive="active">
+                <img src="assets/icons/eye.svg" alt="sidebar nav link icon">
+            </a>
+                <li class="nav-item">
+                <a class="nav-link" routerLink="/signin" routerLinkActive="active">SignIn</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/signup" routerLinkActive="active">SignUp</a>
+            </li> -->
+        </ng-container>
+        <ng-template #loggedIn>
+            <a (click)="authService.logout()" routerLinkActive="active">
+                <img src="assets/icons/logout.svg" alt="sidebar nav link icon">
+            </a>
+        </ng-template>
+
+
+
+    </nav>
+</div>

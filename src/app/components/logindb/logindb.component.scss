@@ -1,0 +1,23 @@
+.card {
+    height: 250px;
+    background-color: blue($color: #182B54);
+}
+
+.card-header {
+    background-color: blue($color: #182B54);
+}
+
+.card-header h2 {
+    color: green;
+}
+
+.form-control {
+    height: 50px;
+    font-size: 30px;
+}
+
+#sali {
+    height: 50px;
+    font-size: 30px;
+    background-color: #FF0571;
+}

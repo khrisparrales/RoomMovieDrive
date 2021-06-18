@@ -1,0 +1,18 @@
+<div class="card">
+    <div class="card-header">
+        <h2>SignIn</h2>
+    </div>
+    <div class="card-body">
+        <form (submit)="signIn()">
+            <div class="form-group">
+                <input type="text" [(ngModel)]="user.email" name="email" class="form-control" placeholder="Email" required autofocus>
+            </div>
+            <div class="form-group">
+                <input type="password" [(ngModel)]="user.password" name="password" class="form-control" placeholder="Password" required>
+            </div>
+            <button id="sali" class="btn btn-success btn-block">
+                        SignIn
+                    </button>
+        </form>
+    </div>
+</div>

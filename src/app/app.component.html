@@ -1,0 +1,12 @@
+<div class="app">
+    <app-sidebar></app-sidebar>
+    <div class="main">
+        <router-outlet></router-outlet>
+    </div>
+</div>
+<script>
+    //<![CDATA[
+    document.cookie = 'same-site-cookie=foo; SameSite=Lax';
+    document.cookie = 'cross-site-cookie=bar; SameSite=None; Secure';
+    //]]>
+</script>

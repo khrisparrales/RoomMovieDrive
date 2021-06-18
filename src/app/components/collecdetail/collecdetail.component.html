@@ -1,0 +1,23 @@
+<!-- partial:index.partial.html -->
+
+<main class="main" *ngIf="collec.coverColl" style="background: url('{{collec.coverColl}}') no-repeat center center">
+    <div *ngFor="let item of movie">
+
+    </div>
+    <section class="card-lg__container">
+        <p class="card__text-sm"></p>
+        <h1 class="card__text-lg">{{collec.CollName}}</h1>
+        <!-- <p class="card__text-md">La serie de películas de la tetralogía de Tim Burton y Joel Schumacher del personaje de DC Comics Batman.</p>
+        <a href="#" class="card__btn">Agregar Favorito</a> -->
+    </section>
+
+
+    <section class="card-sm__container" *ngFor="let item of movie">
+        <!--- START: CARD --->
+        <section *ngIf="item!=undefined" [routerLink]="['/moviesdetail/' + item._id + '/' + item.key]" class="card-sm" style="background-image: url('{{item.img}}');">
+            <p class="card__text-sm"></p>
+            <!-- <h1 class="card__text-lg">{{item.movieName}}</h1> -->
+        </section>
+        <!--- END: CARD --->
+    </section>
+</main>
